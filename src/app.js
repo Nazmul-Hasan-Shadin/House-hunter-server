@@ -5,11 +5,14 @@ const applyMiddleware = require('./middleware/applayMiddleware');
 const app= express()
 
 const users= require('./router/Users/users')
-
+const ownerCheck= require('./router/ownerChecker/owner')
+const allhouses= require('./router/allhouse/houses')
 applyMiddleware(app)
 
 
 app.use(users)
+app.use(ownerCheck)
+app.use(allhouses)
 
 
 connectToDb()
